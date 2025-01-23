@@ -13,6 +13,10 @@ if ($requestUri === '/users' && $requestMethod === 'GET') {
     require_once __DIR__ . '/../app/Controllers/UserController.php';
     (new UserController())->login();
 } elseif (preg_match('/\/users\/(\d+)/', $requestUri, $matches) && $requestMethod === 'GET') {
+} elseif ($requestUri === '/register' && $requestMethod === 'POST') {
+    require_once __DIR__ . '/../app/Controllers/UserController.php';
+    (new UserController())->register();
+} elseif (preg_match('/\/users\/(\d+)/', $requestUri, $matches) && $requestMethod === 'GET') {
      require_once __DIR__ . '/../app/Controllers/UserController.php';
     (new UserController())->getUser($matches[1]);
 } else {

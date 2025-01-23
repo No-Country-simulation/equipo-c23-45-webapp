@@ -24,17 +24,29 @@ class User
     }
 
     public function create($data)
-    {
-        $query = $this->db->prepare("INSERT INTO users (name, email) VALUES (:name, :email)");
-        $query->execute([':name' => $data['name'], ':email' => $data['email']]);
-        return ['id' => $this->db->lastInsertId(), 'name' => $data['name'], 'email' => $data['email']];
+    {   
+        $uiid = uniqid(); // Generar un identificador único para el usuario
+        $name = $data['name'];
+        $email = $data['email'];
+        $password = password_hash($data['password'], PASSWORD_DEFAULT);
+
+        $query = "INSERT INTO users (uiid, name, email, password, status, created_at, update_at) 
+                  VALUES (:uiid, :name, :email, :password, 1, NOW(), NOW())";
+        
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':uiid', $uiid);
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':password', $password);
+        $stmt->execute();
+        return ['id' => $this->db->lastInsertId(),'uiid' => $uiid, 'name' => $name, 'email' => $email];
     }
 
 
     public function saveToken($token, $expirationTime, $userId)
     {
         try {
-            $stmt = $this->db->prepare("INSERT INTO `access_tokens` (`token`, `expires_at`, `revoked`, `created_at`, `updated_at`, `user_id`) 
+            $stmt = $this->db->prepare("INSERT INTO `access_tokens` (`token`, `name`, `revoked`, `created_at`, `updated_at`, `user_id`) 
                 VALUES (:token, :expires_at, :revoked, NOW(), NOW(), :user_id)
             ");
             $revoked = 0;

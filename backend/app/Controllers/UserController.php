@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../Models/User.php';
 require_once __DIR__ . '/../Database.php';
 date_default_timezone_set('America/Bogota');
+
 use Firebase\JWT\JWT;
 
 class UserController
@@ -37,16 +38,22 @@ class UserController
         }
     }
 
-    public function createUser()
+    public function register()
     {
         $data = json_decode(file_get_contents('php://input'), true);
-        if (isset($data['name'], $data['email'])) {
+        if (isset($data['name'], $data['email'], $data['password'])) {
+            //verificar si el email ya existe
+            if($this->validateOnBD($data['email'])){
+                http_response_code(400);
+                echo json_encode(['message' => 'Email already exists']);
+                return;
+            }
             $user = $this->userModel->create($data);
             http_response_code(201);
             echo json_encode($user);
         } else {
             http_response_code(400);
-            echo json_encode(['message' => 'Invalid input']);
+            echo json_encode(['message' => 'Los parámetros no están completos y son requeridos.']);
         }
     }
     public function login()
@@ -137,6 +144,19 @@ class UserController
         }
         if ($user['status']) {
             return true;
+        } else {
+            return false;
+        }
+    }
+    private function validateOnBD($username)
+    {
+        $query = "SELECT COUNT(*) AS total FROM users WHERE email = :email";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':email', $username, PDO::PARAM_STR);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($row['total'] > 0) {
+           return true;
         } else {
             return false;
         }
