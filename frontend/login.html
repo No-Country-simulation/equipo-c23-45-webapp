@@ -17,33 +17,43 @@
         <img src="./assets/icon/menu.png" alt="menu">
       </button>
       <ul class="menu">
-        <li><a href="#">Inicio</a></li>
+        <li><a href="index.html">Inicio</a></li>
         <li><a href="">Tienda</a></li>
         <li><a href="">Carrito</a></li>
-        <li><a href="login.html">Inicio de sesión</a></li>
+        <li><a href="#">Inicio de sesión</a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <section class="titulo">
-      <h1>We're <span>farmers</span>, <span>purveyors</span>, and <span>eaters</span> of organically grown food.</h1>
-      <button class="btn-tienda"><a href="">Tienda</a></button>
-    </section>
-    <section class="imagenes">
-      <aside class="izquierda">
-        <img src="./assets/img/verduras_verdes.png" alt="Verduras verdes">
-        <div class="texto">
-          <p>OBJETIVO</p>
-          <span>Descripción</span>
+    <div class="container">
+        <div class="tabs">
+          <button class="tab-button active" data-target="login-form">Iniciar sesión</button>
+          <button class="tab-button" data-target="register-form">Registro</button>
         </div>
-      </aside>
-      <aside class="derecha">
-        <figure>
-          <img src="./assets/img/hortalizas.png" alt="Hortalizas">
-          <figcaption>Productos en venta</figcaption>
-        </figure>
-      </aside>
-    </section>
+        <div class="forms">
+          <!-- Formulario de inicio de sesión -->
+          <form id="login-form" class="form active">
+            <h2>Iniciar sesión</h2>
+            <label for="email">Correo/Nombre de usuario</label>
+            <input type="text" id="email" name="email" required>
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" required>
+            <button class="btn-login" type="submit">Entrar</button>
+          </form>
+    
+          <!-- Formulario de registro -->
+          <form id="register-form" class="form">
+            <h2>Registro</h2>
+            <label for="username">Nombre de usuario</label>
+            <input type="text" id="username" name="username" required>
+            <label for="email-register">Correo</label>
+            <input type="email" id="email-register" name="email" required>
+            <label for="password-register">Contraseña</label>
+            <input type="password" id="password-register" name="password" required>
+            <button class="btn-login" type="submit">Registrar</button>
+          </form>
+        </div>
+      </div>
 
   </main>
   <footer>

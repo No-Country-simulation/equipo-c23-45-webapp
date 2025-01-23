@@ -194,6 +194,58 @@ opacity: 0.8;
   padding-bottom: 50px;
 }
 
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  border: none;
+  background: #f4f4f4;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.tab-button.active {
+  background: #4CAF50;
+  color: white;
+}
+
+.forms .form {
+  display: none;
+}
+
+.forms .form.active {
+  display: block;
+}
+.btn-login {
+  width: 170px;
+  height: 45px;
+  border-radius: 8px;
+  border: none;
+  background-color:var(--verde);
+  margin: 30px 0;
+  color: var(--blanco);
+}
+
+.container {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: auto;
+  padding: 20px;
+}
+
 
 
 @media (min-width: 768px){
@@ -272,5 +324,31 @@ opacity: 0.8;
   .copyright {
     padding-bottom: 50px;
   }
-  
+
+  .container {
+    display: flex; /* Activa el diseño en fila */
+    justify-content: space-between; /* Espacio entre los formularios */
+    align-items: flex-start; /* Alineación en la parte superior */
+    gap: 20px; /* Espaciado entre los elementos */
+    flex-wrap: nowrap; /* Asegúrate de que no se envuelvan los formularios */
+  }
+
+  .forms {
+    display: flex; /* Configura como fila */
+    flex-direction: row; /* Asegura que estén en horizontal */
+    gap: 20px; /* Espaciado entre formularios */
+    width: 100%; /* Usar todo el ancho del contenedor */
+  }
+  .forms .form {
+    display: block;
+  }
+
+  .form {
+    display: block; /* Asegúrate de que se muestren */
+    width: 48%; /* Ambos formularios ocupan el 48% del ancho (ajusta según sea necesario) */
+  }
+
+  .tabs {
+    display: none; /* Oculta las pestañas en diseño de escritorio */
+  }
 }
