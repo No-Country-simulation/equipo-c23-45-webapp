@@ -1,0 +1,27 @@
+
+
+/* Oculta el contenedor de vista previa */
+.hidden {
+  display: none;
+}
+
+/* Estilo de la imagen en la vista previa */
+#image-preview {
+  max-width: 200px;
+}
+
+/* Botón para eliminar la imagen */
+.remove-btn {
+  display: block;
+  margin-top: 10px;
+  background-color: var(--verde);
+  color: var(--blanco);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background-color: #c0392b;
+}
