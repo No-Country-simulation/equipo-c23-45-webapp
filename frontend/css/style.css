@@ -148,8 +148,8 @@ figcaption {
 .footer {
   box-sizing: border-box;
   height: auto;
-  background-color: #426B1F;
-  color: #FAFAF5;
+  background-color: var(--verde);
+  color: var(--blanco);
   text-align: center;
   font-family: var(--inter);
   font-weight: 400;
@@ -326,29 +326,29 @@ input {
   }
 
   .container {
-    display: flex; /* Activa el diseño en fila */
-    justify-content: space-between; /* Espacio entre los formularios */
-    align-items: flex-start; /* Alineación en la parte superior */
-    gap: 20px; /* Espaciado entre los elementos */
-    flex-wrap: nowrap; /* Asegúrate de que no se envuelvan los formularios */
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start; 
+    gap: 20px; 
+    flex-wrap: nowrap; 
   }
 
   .forms {
-    display: flex; /* Configura como fila */
-    flex-direction: row; /* Asegura que estén en horizontal */
-    gap: 20px; /* Espaciado entre formularios */
-    width: 100%; /* Usar todo el ancho del contenedor */
+    display: flex; 
+    flex-direction: row; 
+    gap: 20px; 
+    width: 100%; 
   }
   .forms .form {
     display: block;
   }
 
   .form {
-    display: block; /* Asegúrate de que se muestren */
-    width: 48%; /* Ambos formularios ocupan el 48% del ancho (ajusta según sea necesario) */
+    display: block; 
+    width: 48%; 
   }
 
   .tabs {
-    display: none; /* Oculta las pestañas en diseño de escritorio */
+    display: none; 
   }
 }
