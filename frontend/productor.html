@@ -26,28 +26,30 @@
     </nav>
   </header>
   <main>
-    <form id="product-form" method="post">
+    <form class="product-form" id="product-form" method="post">
+      <h2 class="title-product">Agregar Producto</h2>
       <label for="">Nombre del producto</label>
-      <input type="text" name="nombre_producto">
+      <input type="text" name="nombre_producto" placeholder="Ej: lechuga, tomate, leche..." required>
       <label for="">Variedad</label>
-      <input type="text" name="variedad_producto">
+      <input type="text" name="variedad_producto" placeholder="Ej: romana, cherry..." required>
       <label for="">Categoría</label>
-      <input type="text" name="categoria_producto">
-      <label for="">Cantidad</label>
-      <input type="text" name="cantidad_disponible">
-      <label for="">Unidad de venta</label>
-      <input type="text" name="unidad_venta">
+      <input type="text" name="categoria_producto" placeholder="Ej: verduras, lacteos..." required>
+     <!--  texto o numero? -->
+      <label for="">Cantidad</label> 
+      <input type="text" name="cantidad_disponible" placeholder="" required>
+      <label for="">Unidad de venta</label> 
+      <input type="text" name="unidad_venta" placeholder="Ej: kilo, litro, unidad..." required>
       <label for="">Precio</label>
-      <input type="text" name="precio">
+      <input type="text" name="precio" placeholder="" required>
       <label for="product-image">Selecciona una imagen del producto:</label>
-      <input type="file" id="product-image" name="productImage" accept="image/*">
+      <input type="file" id="product-image" name="productImage" accept="image/*" required>
       <div id="preview-container" class="hidden">
         <p>Vista previa:</p>
         <img id="image-preview" alt="Vista previa de la imagen">
         <button type="button" id="remove-image" class="remove-btn">Eliminar imagen</button>
       </div>
       
-      <button type="submit">Enviar</button>
+      <button class="btn-product" type="submit">Enviar</button>
     </form>
 
   </main>
