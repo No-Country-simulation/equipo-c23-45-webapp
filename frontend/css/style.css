@@ -2,6 +2,7 @@
   --verde:#426B1F;
   --blanco:#FAFAF5;
   --gris:#C2C2C2;
+  --rosa: #F8F8E2;
   --inter:"Inter", serif;
   --newsreader:"Newsreader", serif;
   
@@ -211,7 +212,8 @@ input {
 .tab-button {
   padding: 10px 20px;
   border: none;
-  background: #f4f4f4;
+  background: var(--blanco);
+  color: var(--verde);
   cursor: pointer;
   border-radius: 4px;
 }
@@ -219,6 +221,17 @@ input {
 .tab-button.active {
   background: #4CAF50;
   color: white;
+}
+
+.forms h2 {
+  font-family: var(--newsreader);
+  font-weight: 400;
+  font-size: 36px;
+  padding: 15px 0;
+}
+
+.forms label {
+  font-family: var(--inter); 
 }
 
 .forms .form {
@@ -235,15 +248,16 @@ input {
   border: none;
   background-color:var(--verde);
   margin: 30px 0;
-  color: var(--blanco);
+  color: var(--blanco);  
 }
 
 .container {
-  background: #fff;
+   background-color: var(--rosa);
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: auto;
   padding: 20px;
+  margin: 0 75px;
 }
 
 
@@ -329,7 +343,7 @@ input {
     display: flex;
     justify-content: space-between; 
     align-items: flex-start; 
-    gap: 20px; 
+    gap: 25px;
     flex-wrap: nowrap; 
   }
 
